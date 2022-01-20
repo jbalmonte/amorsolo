@@ -23,12 +23,15 @@ include 'includes/products.php';
             <tbody class="bg-light">
                 <?php foreach ($products as $product) : ?>
                     <tr class="text-center text-secondary">
+                        <?php $description = str_replace(' ', '-', strtolower($product->description)) ?>
                         <td class="col-2"> <?= $product->product_code ?> </td>
                         <td class="col-3"> <?= $product->description ?> </td>
-                        <td class="col-1"> <input type="number" class="form-control form-control-sm text-center"> </td>
+                        <td class="col-1">
+                            <input type="number" min="0" onchange="handleQtyChange('<?= $description; ?>', <?= $product->unit_price; ?>,this.value)" class="form-control form-control-sm text-center">
+                        </td>
                         <td class="col-1"><?= $product->unit ?> </td>
                         <td class="col-2"> <?= $product->unit_price ?> </td>
-                        <td class="col-2" id=<?= '"' . str_replace(' ', '-', strtolower($product->description . '"'))  ?>>0.0</td>
+                        <td class="col-2" id=<?= '"' . $description . '"'   ?>>0.00</td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -42,7 +45,7 @@ include 'includes/products.php';
                             ₱
                         </span>
                     </div>
-                    <input type="number" name="total" id="total" disabled class="form-control text-center" value="0.0">
+                    <input type="number" name="total" id="total" disabled class="form-control text-center" value="0.00">
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 include 'includes/header.php'
 ?>
 
@@ -86,14 +86,16 @@ include 'includes/header.php'
                             </table>
                         </div>
 
-                   
+
 
                     </div>
                 </div>
             </div>
         </form>
     </div>
-    <script src="script.js"></script>
+    <script>
+        document.querySelector('#order-date').value = new Date().toISOString().substring(0, 10)
+    </script>
     </body>
 
     </html>
