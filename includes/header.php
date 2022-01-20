@@ -1,4 +1,6 @@
 <?php
+include_once './classes/product.php';
+
 $url = explode('/', $_SERVER['SCRIPT_NAME'])[2];
 
 function navItem($str)
@@ -21,6 +23,10 @@ function navItem($str)
     <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <style>
+        body {
+            overflow-y: scroll;
+        }
+
         #main-table {
             width: 150%;
         }

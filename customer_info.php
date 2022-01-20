@@ -2,9 +2,9 @@
 include 'includes/header.php'
 ?>
 
-<div class="card my-5 mx-auto shadow-sm" style="max-width: 80%;">
+<div class="card my-5 mx-auto shadow-sm" style="max-width: 50%;">
     <div class="card-header text-light bg-secondary text-center">
-        <i class="fas fa-pen-alt"></i> ORDER FORM
+        <i class="fas fa-pen-alt"></i> CUSTOMER FORM
     </div>
     <div class="card-body bg-light">
         <form class="form">
