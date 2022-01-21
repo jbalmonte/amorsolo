@@ -26,13 +26,16 @@ function navItem($label, $route)
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script defer src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <style>
         body {
             overflow-y: scroll;
         }
 
         #main-table {
-            width: 130%;
+            width: 80%;
         }
 
         @media screen and (max-width:1000px) {
@@ -57,7 +60,7 @@ function navItem($label, $route)
 
 <body class="bg-dark">
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-        <div><a class="navbar-brand" href="#" id="logo"><i class="fal fa-utensils-alt"></i> Amorsolo</a></div>
+        <div><a class="navbar-brand" href="index.php" id="logo"><i class="fal fa-utensils-alt"></i> Amorsolo</a></div>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
