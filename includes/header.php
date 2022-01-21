@@ -55,11 +55,11 @@ function navItem($str)
         </button>
         <ul class="navbar-nav ml-auto mt-2 mr-2 mt-lg-0">
             <?php navItem('index.php') ?>
-            <a class="nav-link" href="index.php">Order<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.php">Customer Form<span class="sr-only">(current)</span></a>
             </li>
-            <?php navItem('customer_info.php') ?>
+            <?php navItem('order-form.php') ?>
 
-            <a class="nav-link" href="customer_info.php">Customer</a>
+            <a class="nav-link" href="order-form.php">Order Form</a>
             </li>
             <?php navItem('order_list.php') ?>
             <a class="nav-link" href="order_list.php">List of Orders</a>

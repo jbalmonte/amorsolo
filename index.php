@@ -1,62 +1,97 @@
 <?php
-include 'includes/header.php';
-include 'includes/products.php';
+include 'includes/header.php'
 ?>
 
-<form class="card my-5 mx-auto shadow-sm" style="max-width: 80%;">
+<form class="card my-5 mx-auto shadow-sm" style="max-width: 55%;">
     <div class="card-header text-light bg-info text-center">
-        <i class="fas fa-pen-alt"></i> ORDER FORM
+        <i class="fas fa-pen-alt"></i> CUSTOMER FORM
     </div>
     <div class="card-body bg-light px-5 py-4">
-        <table class="table table-bordered table-responsive-md table-md">
-            <thead class="bg-secondary text-light">
-                <tr class="text-center">
-                    <th>Product Code</th>
-                    <th>Description</th>
-                    <th>Quantity</th>
-                    <th>Unit</th>
-                    <th>Unit Price (₱)</th>
-                    <th>Total Price</th>
-                </tr>
-            </thead>
+        <div class="card">
+            <div class="card-header bg-secondary text-light">
+                <i class="far fa-user"></i>
+                Customer
+            </div>
+            <div class="card-body text-dark">
+                <div class="d-lg-flex justify-content-lg-between">
+                    <table class="table-sm" id="main-table">
+                        <tr>
+                            <td>
+                                <label for="name" class="col-form-label col-form-label-sm">
+                                    Customer Name:</label>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control form-control-sm" id="name">
+                            </td>
+                        </tr>
 
-            <tbody class="bg-light">
-                <?php foreach ($products as $product) : ?>
-                    <tr class="text-center text-secondary">
-                        <?php $description = str_replace(' ', '-', strtolower($product->description)) ?>
-                        <td class="col-2"> <?= $product->product_code ?> </td>
-                        <td class="col-3"> <?= $product->description ?> </td>
-                        <td class="col-1">
-                            <input type="number" min="0" onchange="handleQtyChange('<?= $description; ?>', <?= $product->unit_price; ?>,this.value)" class="form-control form-control-sm text-center">
-                        </td>
-                        <td class="col-1"><?= $product->unit ?> </td>
-                        <td class="col-2"> <?= $product->unit_price ?> </td>
-                        <td class="col-2" id=<?= '"' . $description . '"'   ?>>0.00</td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-        <div class="ml-auto col-lg-5 mr-md-n5">
-            <div class="input-group row">
-                <label for="total" class="col-form-label col-md-3">Total:</label>
-                <div class="input-group col-md-9">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">
-                            ₱
-                        </span>
-                    </div>
-                    <input type="number" name="total" id="total" disabled class="form-control text-center" value="0.00">
+                        <tr>
+                            <td>
+                                <label for="address" class=" col-form-label col-form-label-sm">Address:</label>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control form-control-sm" id="address">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label for="contact-number" class=" col-form-label col-form-label-sm">Contact
+                                    Number:</label>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control form-control-sm" id="contact-number">
+                            </td>
+                        </tr>
+
+
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label for="email" class=" col-form-label col-form-label-sm">Email:</label>
+                            </td>
+
+                            <td>
+                                <input type="email" class="form-control form-control-sm" id="email">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label for="order-date" class=" col-form-label col-form-label-sm">Order
+                                    Date:</label>
+                            </td>
+
+                            <td>
+                                <input type="date" class="form-control form-control-sm" id="order-date" disabled>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="order-number" class="col-form-label col-form-label-sm" disabled>Order
+                                    Number:</label>
+                            </td>
+
+                            <td>
+                                <input type="number" class="form-control form-control-sm" id="order-number">
+                            </td>
+                        </tr>
+
+                    </table>
                 </div>
             </div>
         </div>
     </div>
     <div class="card-footer ml-auto">
-        <button type="submit" class="btn btn-success"> <i class="far fa-paper-plane"></i>
-            Submit</button>
+        <button type="submit" class="btn btn-primary"> <i class="far fa-paper-plane"></i>
+            Save</button>
         <button type="reset" class="btn btn-danger"> <i class="fas fa-redo"></i> Reset</button>
     </div>
 </form>
-<script src="script.js"></script>
+<script>
+    document.querySelector('#order-date').value = new Date().toISOString().substring(0, 10)
+</script>
 </body>
 
 </html>
