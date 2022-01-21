@@ -72,7 +72,7 @@ include 'includes/header.php'
                                     <input type="date" class="form-control form-control-sm" disabled value="<?= date('Y-m-d'); ?>">
                                 </td>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <td>
                                     <label for="order-number" class="col-form-label col-form-label-sm" disabled>Order
                                         Number:</label>
@@ -81,7 +81,7 @@ include 'includes/header.php'
                                 <td class="text-secondary small  text-right">
                                     <input type="number" class="form-control form-control-sm" disabled id="order-number" value="2">
                                 </td>
-                            </tr>
+                            </tr> -->
                         </table>
                     </div>
 
@@ -89,8 +89,8 @@ include 'includes/header.php'
             </div>
         </div>
     </div>
-    <div class="card-footer ml-auto">
-        <button type="submit" class="btn btn-primary"> <i class="far fa-paper-plane"></i>
+    <div class="card-footer text-right">
+        <button type="submit" class="btn btn-primary"> <i class="fas fa-save"></i>
             Save</button>
         <button type="button" onclick="myReset()" class="btn btn-danger"> <i class="fas fa-redo"></i> Reset</button>
     </div>

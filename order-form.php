@@ -16,7 +16,7 @@ include 'includes/products.php';
                     <th>Quantity</th>
                     <th>Unit</th>
                     <th>Unit Price (₱)</th>
-                    <th>Total Price</th>
+                    <th>Total Price (₱)</th>
                 </tr>
             </thead>
 
@@ -31,7 +31,7 @@ include 'includes/products.php';
                         </td>
                         <td class="col-1"><?= $product->unit ?> </td>
                         <td class="col-2"> <?= $product->unit_price ?> </td>
-                        <td class="col-2" id=<?= '"' . $description . '"'   ?>>0.0</td>
+                        <td class="col-2" id="<?= $description ?>">0.0</td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -50,7 +50,7 @@ include 'includes/products.php';
             </div>
         </div>
     </div>
-    <div class="card-footer ml-auto">
+    <div class="card-footer  text-right">
         <button type="submit" class="btn btn-success"> <i class="far fa-paper-plane"></i>
             Submit</button>
         <button type="reset" class="btn btn-danger"> <i class="fas fa-redo"></i> Reset</button>
