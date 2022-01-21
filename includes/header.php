@@ -1,12 +1,15 @@
 <?php
-include_once './classes/product.php';
+include './classes/product.php';
 
 $url = explode('/', $_SERVER['SCRIPT_NAME'])[2];
 
-function navItem($str)
+function navItem($label, $route)
 {
     global $url;
-    echo '<li class="nav-item ' . ($url == $str  ? 'active' : '') . '">';
+    $isActive = $url === $route;
+    echo '<li class="nav-item ' .  ($isActive ? 'active' : '') . '">' .
+        '<a class="nav-link" ' . ($isActive ? '' : 'href="' . $route) . '">' . $label . '</a>' .
+        '</li>';
 }
 
 ?>
@@ -18,7 +21,7 @@ function navItem($str)
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Form</title>
+    <title>Amorsolo </title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -28,7 +31,7 @@ function navItem($str)
         }
 
         #main-table {
-            width: 150%;
+            width: 130%;
         }
 
         @media screen and (max-width:1000px) {
@@ -44,6 +47,10 @@ function navItem($str)
                 width: 80%;
             }
         }
+
+        .nav-item {
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -54,15 +61,8 @@ function navItem($str)
             <span class="navbar-toggler-icon"></span>
         </button>
         <ul class="navbar-nav ml-auto mt-2 mr-2 mt-lg-0">
-            <?php navItem('index.php') ?>
-            <a class="nav-link" href="index.php">Customer Form<span class="sr-only">(current)</span></a>
-            </li>
-            <?php navItem('order-form.php') ?>
-
-            <a class="nav-link" href="order-form.php">Order Form</a>
-            </li>
-            <?php navItem('order_list.php') ?>
-            <a class="nav-link" href="order_list.php">List of Orders</a>
-            </li>
+            <?php navItem('Customer Form', 'index.php') ?>
+            <?php navItem('Order Form', 'order-form.php') ?>
+            <?php navItem('List of Orders', 'order-list.php') ?>
         </ul>
     </nav>
