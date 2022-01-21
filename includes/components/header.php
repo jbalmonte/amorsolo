@@ -1,5 +1,6 @@
 <?php
-include './classes/product.php';
+include 'classes/product.php';
+include_once 'includes/database/conn.php';
 
 $url = explode('/', $_SERVER['SCRIPT_NAME'])[2];
 

@@ -1,6 +1,6 @@
 <?php
-include 'includes/header.php';
-include 'includes/order-card.php'
+include 'includes/components/header.php';
+include 'includes/components/order-card.php'
 ?>
 
 <div class="card my-5 mx-auto shadow-sm" style="max-width: 70%;">

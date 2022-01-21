@@ -1,6 +1,6 @@
 <?php
-include 'includes/header.php';
-include 'includes/products.php';
+include 'includes/components/header.php';
+include 'includes/database/products.php';
 ?>
 
 <form class="card my-5 mx-auto shadow-sm" style="max-width: 80%;">

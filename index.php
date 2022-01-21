@@ -1,5 +1,5 @@
 <?php
-include 'includes/header.php'
+include 'includes/components/header.php'
 ?>
 
 <form class="card my-5 mx-auto shadow-sm" style="max-width: 70%;" action="" method="POST">
