@@ -1,23 +1,18 @@
 <?php
-// var_dump($_POST);
-if (checkFields($POST)) {
 
-    // print_r($_SESSION['name']);
-    // print_r($_POST);
-    var_dump($_POST);
-    // var_dump($_REQUEST);
-    // echo $POST['name'];
-    // echo $_POST['name'];
-
-    // $_SESSION['name'] = $_REQUEST['name'];
-    // $_SESSION['address'] = $POST['address'];
-    // $_SESSION['email'] = $POST['email'];
-    // $_SESSION['contactNumber'] = $POST['contact-number'];
-    // echo ('SERVER: ' . $_SERVER['REQUEST_METHOD'] . '<br/>');
-    // echo ('POST: ' . $_POST . '<br/>');
-    // echo ('SERVER: ' . $_SERVER . '<br/>');
-    // echo ('GET: ' . $_GET . '<br/>');
-    // print_r('SESSION: ' . $_SESSION . '<br/>');
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name = $_POST['name'];
+    $address = $_POST['address'];
+    $contactNumber = $_POST['contact-number'];
+    $email = $_POST['email'];
+    $status = "";
+    if (empty($name) || empty($address) || empty($contactNumber) || empty($email)) {
+        $status = "error";
+    } else {
+        $_SESSION['name'] = $name;
+        $_SESSION['address'] = $address;
+        $_SESSION['contactNumber'] = $contactNumber;
+        $_SESSION['email'] = $email;
+        $status = "success";
+    }
 }
-
-// header('Location: ../../index.php');

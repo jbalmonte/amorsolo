@@ -1,15 +1,15 @@
 <?php
 include 'includes/components/header.php';
 include 'includes/components/modal.php';
-include 'includes/utils/check-fields.php';
+require 'includes/request/customer.php';
 
-// unset($_POST);
-var_dump($_POST);
-// action="./includes/request/customer.php"
+// session_destroy();
+
+var_dump($status);
 ?>
 
 
-<form class="card my-5 mx-auto shadow-sm" onsubmit="return false" method="POST" id="customer-form" style="max-width: 50%;">
+<form class="card my-5 mx-auto shadow-sm" method="POST" id="customer-form" style="max-width: 50%;">
     <div class="card-header text-light bg-info text-center">
         <i class="fas fa-pen-alt"></i> CUSTOMER FORM
     </div>
@@ -29,7 +29,7 @@ var_dump($_POST);
                         </td>
                         <td>
                             <div class="input-group">
-                                <input type="text" name="name" class="form-control form-control-sm" required id="name">
+                                <input type="text" name="name" class="form-control form-control-sm" id="name" <?= $_SESSION['name'] ? 'disabled' : '' ?> value="<?= $_SESSION['name'] ?? '' ?>">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-user"></i> </span>
                                 </div>
@@ -46,7 +46,7 @@ var_dump($_POST);
                         </td>
                         <td>
                             <div class="input-group">
-                                <input type="text" name="address" class="form-control form-control-sm" required id="address">
+                                <input type="text" name="address" class="form-control form-control-sm" required id="address" <?= $_SESSION['address'] ? 'disabled' : '' ?> value="<?= $_SESSION['address'] ?? '' ?>">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-map-marker"></i> </span>
                                 </div>
@@ -61,7 +61,7 @@ var_dump($_POST);
                         </td>
                         <td class="text-left">
                             <div class="input-group">
-                                <input type="text" name="contact-numer" class="form-control form-control-sm" required id="contact-number">
+                                <input type="text" name="contact-number" class="form-control form-control-sm" required id="contact-number" <?= $_SESSION['contactNumber'] ? 'disabled' : '' ?> value="<?= $_SESSION['contactNumber'] ?? '' ?>">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-phone fa-sm"></i> </span>
                                 </div>
@@ -76,7 +76,7 @@ var_dump($_POST);
 
                         <td>
                             <div class="input-group">
-                                <input type="email" name="email" class="form-control form-control-sm" required id="email">
+                                <input type="email" name="email" class="form-control form-control-sm" required id="email" <?= $_SESSION['email'] ? 'disabled' : '' ?> value="<?= $_SESSION['email'] ?? '' ?>">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-envelope fa-sm"></i> </span>
                                 </div>
@@ -89,16 +89,22 @@ var_dump($_POST);
     </div>
     <div class="card-footer text-right">
 
-        <button type="submit" name="submitForm" value="submitForm" onclick="return false;" id="save-btn" class="btn btn-primary"> <i class="fas fa-save"></i>
+        <button type="submit" id="save-btn" class="btn btn-primary <?= $_SESSION ? 'd-none' : '' ?>"> <i class="fas fa-save"></i>
             Save</button>
-        <button type="button" id="reset-btn" onclick="myReset()" class="btn btn-danger"> <i class="fas fa-redo"></i> Reset</button>
+        <button type="button" id="reset-btn" onclick="myReset()" class="btn btn-danger <?= $_SESSION ?  'd-none' : '' ?>"> <i class="fas fa-redo"></i> Reset</button>
 
-        <button type="button" class="btn btn-primary d-none" id="next-btn"> Next <i class="fas fa-chevron-right"></i>
+        <button type="button" onclick="location.href='order-form.php'" class="btn btn-primary <?= $_SESSION && !$errorMessage ? '' : 'd-none' ?>" id="next-btn"> Next <i class="fas fa-chevron-right"></i>
         </button>
     </div>
 </form>
 
+<?php
+createModal('customer-error-modal', 'Error', 'Please fill out all the fields!', 'danger');
+createModal('customer-info-modal', 'Message', 'Information has been saved!', 'success');
+?>
 
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
     function selectField(id) {
         return document.querySelector(`#${id}`)
@@ -111,25 +117,16 @@ var_dump($_POST);
         }
     }
 
-
-    selectField('save-btn').addEventListener('click', e => {
-        // e.preventDefault()
-        $('#customer-info-msg').modal({
+    <?php
+    if (!empty($status)) {
+        echo "$(document).ready(function() {
+        $('#customer-" . ($status === "error" ? 'error' : 'info') . "-modal').modal({
             show: true
-        })
-    })
-
-    selectField('modal-btn').addEventListener('click', e => {
-        // selectField('save-btn').classList.add('d-none')
-        // selectField('reset-btn').classList.add('d-none')
-        // selectField('next-btn').classList.remove('d-none')
-
-        // for (let id of ['name', 'address', 'contact-number', 'email']) {
-        //     selectField(id).disabled = true
-        // }
-        selectField('customer-form').submit()
-        // console.log(selectField('customer-form'));
-    })
+        });
+    })";
+    }
+    $status = "";
+    ?>
 </script>
 </body>
 
