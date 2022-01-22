@@ -1,6 +1,10 @@
+function selectField(id) {
+    return document.querySelector(`#${id}`)
+}
+
 function handleQtyChange(id, unitPrice, qty) {
     const price = unitPrice * qty
-    document.querySelector(`#${id}`).textContent = price.toFixed(1)
+    selectField(id).value = price.toFixed(1)
     computeTotal()
 }
 
@@ -9,9 +13,20 @@ function computeTotal() {
     let total = 0;
 
     for (let product of products) {
-        total += +document.querySelector(`#${product}`).textContent
+        total += +document.querySelector(`#${product}`).value
     }
 
     //assigned the computed total to totalField
-    document.querySelector('#total').value = total.toFixed(1)
+    selectField('total').value = total.toFixed(1)
 }
+
+function myReset() {
+    const fields = ['name', 'address', 'contact-number', 'email']
+    for (let field of fields) {
+        selectField(field).value = ""
+    }
+}
+
+selectField('order-form').addEventListener('submit', e => {
+
+})

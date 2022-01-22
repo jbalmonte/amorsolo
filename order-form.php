@@ -1,9 +1,11 @@
 <?php
 include 'includes/components/header.php';
 include 'includes/database/products.php';
+include 'includes/queries/order.php';
+
 ?>
 
-<form class="card my-5 mx-auto shadow-sm" style="max-width: 80%;">
+<form class="card my-5 mx-auto shadow-sm" style="max-width: 80%;" id="order-form" method="POST">
     <div class="card-header text-light bg-info text-center">
         <i class="fas fa-pen-alt"></i> ORDER FORM
     </div>
@@ -24,14 +26,20 @@ include 'includes/database/products.php';
                 <?php foreach ($products as $product) : ?>
                     <tr class="text-center text-secondary">
                         <?php $description = str_replace(' ', '-', strtolower($product->description)) ?>
-                        <td class="col-2"> <?= $product->product_code ?> </td>
+                        <td class="col-2">
+                            <?= $product->product_code ?>
+                            <input type="hidden" name="product_code" value="<?= $product->product_code; ?>">
+                        </td>
                         <td class="col-3"> <?= $product->description ?> </td>
                         <td class="col-1">
-                            <input type="number" min="0" onchange="handleQtyChange('<?= $description; ?>', <?= $product->unit_price; ?>,this.value)" class="form-control form-control-sm text-center">
+                            <input type="number" name="quantity" min="0" onchange="handleQtyChange('<?= $description; ?>', <?= $product->unit_price; ?>,this.value)" class="form-control form-control-sm text-center">
                         </td>
                         <td class="col-1"><?= $product->unit ?> </td>
                         <td class="col-2"> <?= $product->unit_price ?> </td>
-                        <td class="col-2" id="<?= $description ?>">0.0</td>
+                        <td class="col-2">
+                            <input type="text" readonly class="form-control form-control-sm text-center" name="amount" id="<?= $description ?>" default="0.0">
+
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
