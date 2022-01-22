@@ -4,16 +4,16 @@
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header bg-success text-light">
-                <h6 class="modal-title font-weight-bold">Message</h6>
+                <h6 class="modal-title font-weight-bold"> <i class="fas fa-envelope"></i> Message</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body text-dark">
                 <p>Information has been saved!</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal">Okay</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" id="modal-btn">Okay</button>
             </div>
         </div>
     </div>

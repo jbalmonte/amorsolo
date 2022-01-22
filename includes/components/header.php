@@ -1,6 +1,7 @@
 <?php
 include 'classes/product.php';
 include_once 'includes/database/conn.php';
+session_start();
 
 $url = explode('/', $_SERVER['SCRIPT_NAME'])[2];
 
@@ -58,7 +59,7 @@ function navItem($label, $route)
     </style>
 </head>
 
-<body class="bg-dark">
+<body class="bg-dark text-light">
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
         <div><a class="navbar-brand" href="index.php" id="logo"><i class="fal fa-utensils-alt"></i> Amorsolo</a></div>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
