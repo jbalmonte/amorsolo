@@ -3,9 +3,9 @@ function selectField(id) {
 }
 
 function handleQtyChange(id, unitPrice, qty) {
-    const price = unitPrice * qty
-    selectField(id).value = price.toFixed(1)
-    computeTotal()
+    const price = unitPrice * qty;
+    selectField(id).value = price.toFixed(1);
+    computeTotal();
 }
 
 function computeTotal() {
@@ -29,7 +29,6 @@ function myReset() {
 
 
 selectField('order-form')?.addEventListener('submit', e => {
-
     //filter not selected item
     for (let quantity of document.querySelectorAll('#order-form input[name^=quantity]')) {
         if (!quantity.value) {

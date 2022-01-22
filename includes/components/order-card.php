@@ -85,5 +85,5 @@ function orderCard($order)
             <span>Total: </span>
             <span>₱ 1000.0</span>
         </div>
-    </div>';
+    </div>
 <?php } ?>

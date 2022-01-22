@@ -98,8 +98,8 @@ require 'includes/process/customer.php';
 </form>
 
 <?php
-createModal('customer-error-modal', 'Error', 'Please fill out all the fields!', 'danger');
-createModal('customer-info-modal', 'Message', 'Information has been saved!', 'success');
+createModal('customer-error-modal', 'Error', 'Please fill out all the fields!', 'danger', 'exclamation-circle');
+createModal('customer-info-modal', 'Message', 'Information has been saved!', 'success', 'envelope');
 ?>
 
 

@@ -1,8 +1,10 @@
 <?php
 include 'includes/components/header.php';
+include 'includes/components/modal.php';
 include_once 'includes/database/products.php';
 require_once 'includes/process/order.php'
 ?>
+
 
 <form class="card my-5 mx-auto shadow-sm" style="max-width: 80%;" id="order-form" method="POST">
     <div class="card-header text-light bg-info text-center">
@@ -31,7 +33,7 @@ require_once 'includes/process/order.php'
                         </td>
                         <td class="col-3"> <?= $product->description ?> </td>
                         <td class="col-1">
-                            <input type="number" name="quantity<?= $product->product_code ?>" min="0" onchange="handleQtyChange('<?= $description; ?>', <?= $product->unit_price; ?>,this.value)" class="form-control form-control-sm text-center">
+                            <input type="number" name="quantity<?= $product->product_code; ?>" min="0" onchange="handleQtyChange('<?= $description; ?>', <?= $product->unit_price; ?>, this.value)" class="form-control form-control-sm text-center">
                         </td>
                         <td class="col-1"><?= $product->unit ?> </td>
                         <td class="col-2"> <?= $product->unit_price ?> </td>
@@ -63,7 +65,28 @@ require_once 'includes/process/order.php'
         <button type="reset" class="btn btn-danger"> <i class="fas fa-redo"></i> Reset</button>
     </div>
 </form>
+
 <script src="script.js"></script>
+
+<?php
+createModal('order-info-modal', 'Message', 'Order successful! <br> Do you want to view your order?', 'info', 'envelope', true, 'order-list.php');
+createModal('order-error-modal', 'Error', 'Please select at least one item!', 'danger', 'exclamation-circle');
+?>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+    <?php
+    if (!empty($status)) {
+        echo "$(document).ready(function() {
+        $('#order-" . ($status === "error" ? 'error' : 'info') . "-modal').modal({
+            show: true
+        });
+    })";
+    }
+    $status = "";
+    ?>
+</script>
 </body>
 
 </html>
