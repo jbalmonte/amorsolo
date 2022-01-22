@@ -16,7 +16,7 @@ function computeTotal() {
         total += +document.querySelector(`#${product}`).value
     }
 
-    //assigned the computed total to totalField
+    //assign the computed total to totalField
     selectField('total').value = total.toFixed(1)
 }
 
@@ -27,6 +27,19 @@ function myReset() {
     }
 }
 
-selectField('order-form').addEventListener('submit', e => {
 
+selectField('order-form')?.addEventListener('submit', e => {
+
+    //filter not selected item
+    for (let quantity of document.querySelectorAll('#order-form input[name^=quantity]')) {
+        if (!quantity.value) {
+            const id = quantity.name.match(/\d+/) + "";
+            document.querySelectorAll(`#order-form input[name$="${id}"]`).forEach(x => x.disabled = true)
+        }
+    }
 })
+
+//prevent form resubmission
+if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+}

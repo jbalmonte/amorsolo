@@ -1,8 +1,7 @@
 <?php
 include 'includes/components/header.php';
-include 'includes/database/products.php';
-include 'includes/queries/order.php';
-
+include_once 'includes/database/products.php';
+require_once 'includes/process/order.php'
 ?>
 
 <form class="card my-5 mx-auto shadow-sm" style="max-width: 80%;" id="order-form" method="POST">
@@ -28,16 +27,16 @@ include 'includes/queries/order.php';
                         <?php $description = str_replace(' ', '-', strtolower($product->description)) ?>
                         <td class="col-2">
                             <?= $product->product_code ?>
-                            <input type="hidden" name="product_code" value="<?= $product->product_code; ?>">
+                            <input type="hidden" name="product_code<?= $product->product_code ?>" value="<?= $product->product_code ?>">
                         </td>
                         <td class="col-3"> <?= $product->description ?> </td>
                         <td class="col-1">
-                            <input type="number" name="quantity" min="0" onchange="handleQtyChange('<?= $description; ?>', <?= $product->unit_price; ?>,this.value)" class="form-control form-control-sm text-center">
+                            <input type="number" name="quantity<?= $product->product_code ?>" min="0" onchange="handleQtyChange('<?= $description; ?>', <?= $product->unit_price; ?>,this.value)" class="form-control form-control-sm text-center">
                         </td>
                         <td class="col-1"><?= $product->unit ?> </td>
                         <td class="col-2"> <?= $product->unit_price ?> </td>
                         <td class="col-2">
-                            <input type="text" readonly class="form-control form-control-sm text-center" name="amount" id="<?= $description ?>" default="0.0">
+                            <input type="text" readonly class="form-control form-control-sm text-center" name="amount<?= $product->product_code ?>" id="<?= $description ?>" value="0.0">
 
                         </td>
                     </tr>
@@ -58,8 +57,8 @@ include 'includes/queries/order.php';
             </div>
         </div>
     </div>
-    <div class="card-footer  text-right">
-        <button type="submit" class="btn btn-success"> <i class="far fa-paper-plane"></i>
+    <div class="card-footer text-right">
+        <button type="submit" name="submit" value="submit" class="btn btn-success"> <i class="far fa-paper-plane"></i>
             Submit</button>
         <button type="reset" class="btn btn-danger"> <i class="fas fa-redo"></i> Reset</button>
     </div>

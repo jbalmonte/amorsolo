@@ -1,9 +1,11 @@
 <?php
 session_start();
-include_once 'includes/database/conn.php';
-include 'classes/product.php';
+include 'includes/database/conn.php';
 include 'includes/components/nav-item.php';
 $url = explode('/', $_SERVER['SCRIPT_NAME'])[2];
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +51,7 @@ $url = explode('/', $_SERVER['SCRIPT_NAME'])[2];
     </style>
 </head>
 
-<body class="bg-dark text-light">
+<body class="bg-dark">
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
         <div><a class="navbar-brand" href="index.php" id="logo"><i class="fal fa-utensils-alt"></i> Amorsolo</a></div>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">

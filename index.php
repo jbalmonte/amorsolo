@@ -1,11 +1,11 @@
 <?php
 include 'includes/components/header.php';
 include 'includes/components/modal.php';
-include 'includes/database/customer.php';
-require 'includes/queries/customer.php';
+
+require 'includes/process/customer.php';
 
 // session_destroy();
-var_dump($_SESSION);
+// var_dump($_SESSION);
 ?>
 
 <form class="card my-5 mx-auto shadow-sm" method="POST" id="customer-form" style="max-width: 50%;">
@@ -28,7 +28,7 @@ var_dump($_SESSION);
                         </td>
                         <td>
                             <div class="input-group">
-                                <input type="text" name="name" class="form-control form-control-sm" id="name" <?= $customer->name ? 'disabled' : '' ?> value="<?= $customer->name ?? '' ?>">
+                                <input type="text" name="name" class="form-control form-control-sm" id="name" <?= $_SESSION['name'] ? 'disabled' : '' ?> value="<?= $_SESSION['name'] ?? '' ?>">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-user"></i> </span>
                                 </div>
@@ -45,7 +45,7 @@ var_dump($_SESSION);
                         </td>
                         <td>
                             <div class="input-group">
-                                <input type="text" name="address" class="form-control form-control-sm" id="address" <?= $customer->address ? 'disabled' : '' ?> value="<?= $customer->address ?? '' ?>">
+                                <input type="text" name="address" class="form-control form-control-sm" id="address" <?= $_SESSION['address'] ? 'disabled' : '' ?> value="<?= $_SESSION['address'] ?? '' ?>">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-map-marker"></i> </span>
                                 </div>
@@ -60,7 +60,7 @@ var_dump($_SESSION);
                         </td>
                         <td class="text-left">
                             <div class="input-group">
-                                <input type="text" name="contact-number" class="form-control form-control-sm" id="contact-number" <?= $customer->contact_number ? 'disabled' : '' ?> value="<?= $customer->contact_number ?? '' ?>">
+                                <input type="text" name="contact-number" class="form-control form-control-sm" id="contact-number" <?= $_SESSION['contactNumber'] ? 'disabled' : '' ?> value="<?= $_SESSION['contactNumber'] ?? '' ?>">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-phone fa-sm"></i> </span>
                                 </div>
@@ -75,7 +75,7 @@ var_dump($_SESSION);
 
                         <td>
                             <div class="input-group">
-                                <input type="email" name="email" class="form-control form-control-sm" id="email" <?= $customer->email ? 'disabled' : '' ?> value="<?= $customer->email ?? '' ?>">
+                                <input type="email" name="email" class="form-control form-control-sm" id="email" <?= $_SESSION['email'] ? 'disabled' : '' ?> value="<?= $_SESSION['email'] ?? '' ?>">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-envelope fa-sm"></i> </span>
                                 </div>

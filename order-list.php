@@ -15,7 +15,7 @@ include 'includes/components/order-card.php'
                     <?= date('F d, Y') ?>
                 </span>
             </div>
-            <div class="card-body d-flex align-items-center justify-content-around flex-wrap">
+            <div class="card-body d-flex align-items-center justify-content-between flex-wrap">
                 <?php orderCard('') ?>
                 <?php orderCard('') ?>
                 <?php orderCard('') ?>

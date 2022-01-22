@@ -22,10 +22,23 @@ function orderCard($order)
         </div>
 
         <div class="card-body">
-            <div>
-                <h6 class="text-secondary">Orders:</h6>
+            <div class="text-secondary d-flex align-items-center">
+                <i class="fas fa-home mr-2"></i>
+                <span>
+                    <small>
+                        102 Sitio Victoria Cainta, Rizal
+                    </small>
+                </span>
             </div>
-            <table class="table table-sm small table-bordered table-responsive-md table-md">
+            <div class="text-secondary d-flex align-items-center ">
+                <i class="fas fa-envelope-square mr-2"></i>
+                <span>
+                    <small>
+                        joshua@gmail.com
+                    </small>
+                </span>
+            </div>
+            <table class="table table-sm small table-bordered table-responsive-md table-md mt-3">
                 <thead class="bg-secondary text-light">
                     <tr class="text-center">
                         <th class="align-top">Description</th>
