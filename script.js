@@ -27,16 +27,23 @@ function myReset() {
     }
 }
 
-
-selectField('order-form')?.addEventListener('submit', e => {
+selectField('order-form-btn')?.addEventListener('click', e => {
     //filter not selected item
+    let emptyInputLength = 0
     for (let quantity of document.querySelectorAll('#order-form input[name^=quantity]')) {
         if (!quantity.value) {
+            emptyInputLength += 1
             const id = quantity.name.match(/\d+/) + "";
-            document.querySelectorAll(`#order-form input[name$="${id}"]`).forEach(x => x.disabled = true)
+            const emptyFields = document.querySelectorAll(`#order-form input[name$="${id}"]`)
+            emptyFields.forEach(x => x.disabled = true)
         }
     }
+    if (emptyInputLength !== 10) $('#order-confirmation-modal').modal({ show: true });
+    else selectField('order-form').submit()
 })
+
+selectField('order-confirmation-modal-btn')?.addEventListener('click', () => selectField('order-form').submit())
+
 
 //prevent form resubmission
 if (window.history.replaceState) {

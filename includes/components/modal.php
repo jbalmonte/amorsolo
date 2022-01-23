@@ -13,7 +13,7 @@
                     <p><?= $msg ?></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" <?php echo ($redirect ? ("onclick=location.href='" . $redirect . "'") : '') ?> autofocus class="btn btn-<?= $color ?>" data-dismiss="modal">Okay</button>
+                    <button type="button" id="<?= $id ?>-btn" <?php echo ($redirect ? ("onclick=location.href='" . $redirect . "'") : '') ?> autofocus class="btn btn-<?= $color ?>" data-dismiss="modal">Okay</button>
                     <?php if ($hasCancel) { ?>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     <?php } ?>

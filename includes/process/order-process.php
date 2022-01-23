@@ -1,10 +1,9 @@
 <?php
 
-if (isset($_POST['submit'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $status = "";
 
-    // var_dump(count($_POST) === 1);
-    if (count($_POST) === 1) {
+    if (count($_POST) === 0) {
         $status = "error";
     } else {
         // insert customer record in db

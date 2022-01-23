@@ -1,7 +1,6 @@
 <?php
 include 'includes/components/header.php';
 include 'includes/components/modal.php';
-
 require 'includes/process/customer-process.php';
 
 // session_destroy();
