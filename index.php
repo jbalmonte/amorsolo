@@ -2,7 +2,7 @@
 include 'includes/components/header.php';
 include 'includes/components/modal.php';
 require 'includes/process/customer-process.php';
-
+// session_destroy()
 ?>
 
 <form class="card my-5 mx-auto shadow-sm" method="POST" id="customer-form" style="max-width: 50%;">

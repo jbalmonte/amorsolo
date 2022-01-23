@@ -54,9 +54,11 @@ $url = explode('/', $_SERVER['SCRIPT_NAME'])[2];
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <ul class="navbar-nav ml-auto mt-2 mr-2 mt-lg-0">
-            <?php navItem('Customer Form', 'index.php') ?>
-            <?php navItem('Order Form', 'order-form.php') ?>
-            <?php navItem('List of Orders', 'order-list.php') ?>
-        </ul>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav ml-auto mt-2 mr-2 mt-lg-0">
+                <?php navItem('Customer Form', 'index.php') ?>
+                <?php navItem('Order Form', 'order-form.php') ?>
+                <?php navItem('List of Orders', 'order-list.php') ?>
+            </ul>
+        </div>
     </nav>
