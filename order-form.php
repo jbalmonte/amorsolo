@@ -70,7 +70,7 @@ require_once 'includes/process/order.php'
 
 <?php
 createModal('order-info-modal', 'Message', 'Order successful! <br> Do you want to view your order?', 'info', 'envelope', true, 'order-list.php');
-createModal('order-error-modal', 'Error', 'Please select at least one item!', 'danger', 'exclamation-circle');
+createModal('order-error-modal', 'Error', 'Please select at least one item!', 'danger', 'exclamation-circle`');
 ?>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

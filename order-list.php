@@ -1,6 +1,7 @@
 <?php
 include 'includes/components/header.php';
-include 'includes/components/order-card.php'
+include 'includes/components/order-card.php';
+require_once 'includes/database/order-list.php';
 ?>
 
 <div class="card my-5 mx-auto shadow-sm" style="max-width: 70%;">
@@ -15,10 +16,10 @@ include 'includes/components/order-card.php'
                     <?= date('F d, Y') ?>
                 </span>
             </div>
-            <div class="card-body d-flex align-items-center justify-content-between flex-wrap">
-                <?php orderCard('') ?>
-                <?php orderCard('') ?>
-                <?php orderCard('') ?>
+            <div class="card-body d-flex align-items-top justify-content-between flex-wrap">
+                <?php foreach ($orders as $orderNumber => $order) {
+                    orderCard($orderNumber, $order);
+                } ?>
             </div>
         </div>
 
