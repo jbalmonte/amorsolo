@@ -3,10 +3,7 @@ include 'includes/components/header.php';
 include 'includes/components/modal.php';
 include_once 'includes/database/products-db.php';
 require_once 'includes/process/order-process.php';
-
-
 ?>
-
 
 <form class="card my-5 mx-auto shadow-sm" onsubmit="return false" style="max-width: 80%;" id="order-form" method="POST">
     <div class="card-header text-light bg-info text-center">
@@ -62,7 +59,7 @@ require_once 'includes/process/order-process.php';
         </div>
     </div>
     <div class="card-footer text-right">
-        <button type="submit" name="submitForm" value="submitForm" id="order-form-btn" class="btn btn-success"> <i class="far fa-paper-plane"></i>
+        <button type="submit" id="order-form-btn" class="btn btn-success"> <i class="far fa-paper-plane"></i>
             Submit</button>
         <button type="reset" class="btn btn-danger"> <i class="fas fa-redo"></i> Reset</button>
     </div>
@@ -70,7 +67,7 @@ require_once 'includes/process/order-process.php';
 
 <?php
 createModal('order-info-modal', 'Success', 'Order successful! <br> Do you want to view your order?', 'success', 'envelope', true, 'order-list.php');
-createModal('order-error-modal', 'Error', 'Please select at least one item!', 'danger', 'exclamation-circle`');
+createModal('order-error-modal', 'Error', 'Please select at least one item!', 'danger', 'exclamation-circle');
 createModal('order-confirmation-modal', 'Confirmation', 'Are you sure you want to order the product(s)?', 'info', 'envelope', true);
 ?>
 

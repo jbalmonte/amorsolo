@@ -1,0 +1,33 @@
+CREATE TABLE Customer (
+id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(60) NOT NULL,
+contact_number VARCHAR(16) NOT NULL,
+address VARCHAR(200) NOT NULL,
+email VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Product (
+product_code INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+description VARCHAR(50) NOT NULL,
+unit_price DOUBLE(5,1) NOT NULL,
+unit VARCHAR(10) NOT NULL
+);
+
+
+CREATE TABLE `Order`(
+order_number INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+customer_id INT UNSIGNED NOT NULL,
+order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+FOREIGN KEY(customer_id) REFERENCES Customer(id)
+);
+
+
+CREATE TABLE OrderItems(
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+order_number INT UNSIGNED NOT NULL,
+product_code INT UNSIGNED NOT NULL,
+quantity INT NOT NULL,
+amount DOUBLE(7,1) NOT NULL,
+FOREIGN KEY(order_number) REFERENCES `Order`(order_number),
+FOREIGN KEY(product_code) REFERENCES Product(product_code)    
+);

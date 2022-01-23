@@ -8,14 +8,14 @@ $result = mysqli_query($conn, $sql);
 $resultCheck = mysqli_num_rows($result);
 if ($resultCheck > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
-
-        // echo '<p style="color:#fff;">' . json_encode($row) . '</p>';
         $key = explode(' ', $row['order_date'])[0];
         $prevKey;
+
         //if there is no order_date key in the orders array, declare a new array
         if (!isset($orders[$key])) {
             $orders[$key] = [];
         } else {
+            //if the order date is not the same anymore, sort the previous record by their order_number
             krsort($orders[$prevKey]);
         }
 
@@ -36,6 +36,4 @@ if ($resultCheck > 0) {
 
         $prevKey = $key;
     }
-
-    // echo '<p style="color:#fff;">' . json_encode($orders) . '</p>';
 }
