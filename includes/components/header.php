@@ -3,9 +3,6 @@ session_start();
 include 'includes/database/conn.php';
 include 'includes/components/nav-item.php';
 $url = explode('/', $_SERVER['SCRIPT_NAME'])[2];
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
 ?>
 
 <!DOCTYPE html>

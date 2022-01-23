@@ -14,9 +14,15 @@ function orderCard($orderNumber, $order)
                     </div>
                 </div>
 
-                <div class="text-secondary small font-weight-bold align-text-top">
-                    <span>Order #:</span>
-                    <span><?= $orderNumber ?></span>
+                <div class="text-secondary small  align-text-top  text-right">
+                    <div class="font-weight-bold">
+                        <span>Order #:</span>
+                        <span><?= $orderNumber ?></span>
+                    </div>
+                    <div>
+                        <?= date('h:i A', strtotime($order['orderDate'])) ?>
+                    </div>
+
                 </div>
             </div>
         </div>

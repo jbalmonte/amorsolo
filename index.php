@@ -2,7 +2,7 @@
 include 'includes/components/header.php';
 include 'includes/components/modal.php';
 
-require 'includes/process/customer.php';
+require 'includes/process/customer-process.php';
 
 // session_destroy();
 // var_dump($_SESSION);

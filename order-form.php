@@ -1,8 +1,8 @@
 <?php
 include 'includes/components/header.php';
 include 'includes/components/modal.php';
-include_once 'includes/database/products.php';
-require_once 'includes/process/order.php'
+include_once 'includes/database/products-db.php';
+require_once 'includes/process/order-process.php'
 ?>
 
 
