@@ -20,7 +20,7 @@ require_once 'includes/database/order-list-db.php';
                             <?= $date ?> <?= $date == date("F d, Y") ? '(Today)' : '' ?>
                         </span>
                     </div>
-                    <div class="card-body d-flex align-items-top justify-content-between flex-wrap">
+                    <div class="card-body d-flex align-items-top justify-content-around flex-wrap">
                         <?php foreach ($orderList as $orderNumber => $order) {
                             orderCard($orderNumber, $order);
                         } ?>
